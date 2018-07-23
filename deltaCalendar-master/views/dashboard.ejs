@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Calendar</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="../../public/bootstrap.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../../public/styles.css">
+    <script>
+    function getEvents(){
+      // document.getElementById('28').innerHTML="►hi"+'&nbsp'+'►dsssa';
+      http = new XMLHttpRequest();
+      var url = "/calendar/ajax/events?year=<%=year%>&month=<%=month%>";
+      http.open("GET", url, true);
+      http.send(null);
+      http.onreadystatechange=function(){
+           if (http.readyState==4 && http.status==200){
+             let num = JSON.parse(http.responseText);
+             // responseText Returns the response as a string.
+             // responseXML Returns the response as XML.
+             num.forEach(function(event){
+               document.getElementById(event.date).innerHTML+=" ►"+event.title;
+             });
+
+             // console.log(JSON.parse(num));
+           }
+     }
+   };
+    </script>
+  </head>
+
+  <body onload = "getEvents()">
+
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="">Calendar</a>
+
+      <div>
+        <ul class="nav nav-pills float-right">
+          <li class="nav-item active">
+            <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="invites">Invites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/calendar/logout">Logout</a>
+        </ul>
+      </div>
+    </nav>
+
+
+
+      <div class="starter-template">
+        <% include partials/calendar.ejs %>
+      </div>
+
+
+  </body>
+</html>

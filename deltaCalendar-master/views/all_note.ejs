@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>ToDoApp</title>
+  <link rel="stylesheet" type="text/css" href="../../public/styles.css">
+</head>
+<body>
+<% include partials/header.ejs %>
+<div class ="main">
+	<h1>ALL NOTES</h1>
+	<form method="POST" action="/todoapp/<%=user%>/all_note" style="display:inline">
+  	<label >Search By Label</label>
+  	<input type="text" name="label">
+		<input type="submit" value="GO">
+	</form>
+	<a href="/todoapp/:user/all_note"><span style="margin-left:2%"> Show All </span></a>
+	<a href="/todoapp/:user/lastedited"><span style="float:right">Last Edited &nbsp </span></a>
+	<a href="/todoapp/:user/importance"><span style="float:right"> &nbsp Importance &nbsp</span></a>
+	<br><br>
+  <% data.forEach(function(term){ %>
+	<a href = "/todoapp/<%=user%>/note/<%=term.url%>">
+		<div class="note">
+		Label :<%= term.label %>
+    <strong><li><%= term.title %></li></strong>
+    <li><%= term.content %></li>
+		<br><br>
+		<li>Importance:<%= term.importance %></li>
+		<li class='date'>Created:<%= term.date%></li>
+		<li class='date'>Edited:<%= term.edited%></li>
+	</div>
+	</a>
+    <br>
+  <% }); %>
+</div>
+</body>
+</html>

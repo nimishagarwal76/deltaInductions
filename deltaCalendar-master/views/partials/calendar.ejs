@@ -1,0 +1,36 @@
+<div class="month">
+<ul>
+<a href="/calendar/<%=user%>/date?year=<%=pyear%>&month=<%=pmonth%>"><li class="prev">&#10094;</li></a>
+<a href="/calendar/<%=user%>/date?year=<%=nyear%>&month=<%=nmonth%>"><li class="next">&#10095;</li></a>
+<li>
+<%=mname%><br>
+<span style="font-size:18px"><%=year%></span>
+</li>
+</ul>
+</div>
+
+<ul class="weekdays">
+<li>Mo</li>
+<li>Tu</li>
+<li>We</li>
+<li>Th</li>
+<li>Fr</li>
+<li>Sa</li>
+<li>Su</li>
+</ul>
+<ul class="days">
+<!-- <li><br><span></span></li>
+<li><br><span></span></li> -->
+<%if(init){%>
+<%for(i = 1; i < init; i++){%>
+<li><br><span></span></li>
+<%}%>
+<%}else{%>
+<%for(i = 1; i < 7; i++){%>
+<a><li><br><span></span></li></a>
+<%}%>
+<%}%>
+<%for(i = 1; i <= days; ++i){ %>
+<a href = "/calendar/nimishagarwal76/appointment/date?year=<%=year%>&month=<%=month%>&date=<%=i%>"><li><strong><%=i%></strong><br><span id="<%=i%>"></span></li></a>
+<%}%>
+</ul>

@@ -1,0 +1,8 @@
+#map {
+    border: 1px solid black;
+    margin: 0;
+}
+#date{
+  font-size: large;
+  font-weight: bold;
+}

@@ -1,0 +1,128 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Div Styler</title>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="dashboard.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="../../public/logo.ico"/>
+    <style>
+      #profilePictureLeft{
+        height : 200px;
+        width : 200px;
+      }
+      #profilePictureRight{
+        height : 300px;
+        width : 300px;
+      }
+      #profilePictureMiddle{
+        height : 250px;
+        width : 250px;
+      }
+      #match{
+        text-align: center;
+        padding: 20px;
+        border: solid 1px;
+        padding-top: 10px;
+        border-radius: 7px;
+        margin: 10px;
+        box-shadow: 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="">Black Benches</a>
+
+      <div>
+        <ul class="nav nav-pills float-right">
+          <li class="nav-item active">
+            <a class="nav-link" href="menu">Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="match">Matches <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="profile">Profile <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4  bg-light">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column" id="options">
+              <br><br><br>
+              <li class="nav-item">
+              <div class="nav-link">
+                  <span><strong> Profile Picture</strong></span><br>
+                  <img src="../../.<%=profilepicture%>" class="img-rounded" id="profilePictureLeft">
+                <br>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <div class="nav-link">
+              <span><strong> Public Name</strong></span><br>
+              <%=publicname%>
+              <br>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link">
+            <span><strong> Gender</strong></span><br>
+            <%=gender%>
+            <br>
+          </div>
+        </li>
+          <li class="nav-item">
+            <div class="nav-link">
+            <span><strong> Display Info</strong></span><br>
+            <%=aboutme%>
+            <br>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link">
+          <span><strong> Looking For</strong></span><br>
+          <%=lookingfor%>
+          <br>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link">
+        <span><strong> Interested in</strong></span><br>
+        <%=interestedin%>s
+        <br>
+      </div>
+    </li>
+            </ul>
+
+<br><br><br><br><br><br>
+          </div>
+        </div>
+        <div class="col-md-6 d-none d-md-block " id="match" >
+          <br><br><br><br>
+        <h3>Matched With </h3>
+        <%matchedwith.forEach((match)=>{%>
+          <strong>You</strong> were matched with <strong><%=match.name%></strong><br>
+          <strong>Phone Number:</strong><strong> <%=match.phone%></strong><br>
+          <img src="../../.<%=match.profilepicture%>" class="img-rounded" id="profilePictureMiddle">
+          <hr>
+        <%})%>
+      </div>
+    </div>
+</div>
+  </body>
+</html>

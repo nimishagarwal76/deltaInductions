@@ -1,0 +1,121 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Div Styler</title>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="../../public/logo.ico"/>
+    <style>
+      #profilePictureLeft{
+        height : 200px;
+        width : 200px;
+      }
+      #profilePictureRight{
+        height : 300px;
+        width : 300px;
+      }
+      #addprofile{
+        display: none;
+      }
+      #change{
+        border: solid 1px;
+        background: #f8f9fa;
+        padding: 7px;
+        border-radius: 7px;
+        margin-bottom: 10px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="">Black Benches</a>
+
+      <div>
+        <ul class="nav nav-pills float-right">
+          <li class="nav-item active">
+            <a class="nav-link" href="menu">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="match">Matches <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="profile">Profile <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2  bg-light">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column" id="options">
+              <br><br><br>
+              <li class="nav-item">
+              <div class="nav-link">
+                  <span><strong> Profile Picture</strong></span><br>
+                  <img src="../../.<%=profilepicture%>" class="img-rounded" alt="No Profile Picture" id="profilePictureLeft">
+                <br>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <div class="nav-link">
+              <span><strong> Public Name</strong></span><br>
+              <%=publicname%>
+                <!-- <input type="color" value="#ffffff" class = "pick" id="backgroundColor"> -->
+              <br>
+            </div>
+          </li>
+            </ul>
+
+          </div>
+        </div>
+        <div class="col-md-4 d-none d-md-block "  >
+          <% include partials/profile.ejs %>
+      </div>
+      <div class="col-md-6 d-none d-md-block " >
+
+        <div id="images">
+          <br><br><br><br><br>
+          <h3>Pictures</h3>
+          <img src="../../.<%=profilepicture%>" alt="No Profile Picture" class="img-rounded" id="profilePictureRight"><br>
+          <span id="change">Change</span><br>
+          <form method="post" action="addprofileimage" name="profileInfo" enctype="multipart/form-data" id="addprofile">
+            <div class="form-group">
+             <input type="file" name="myImage" class = 'form-control'>
+           </div>
+           <button type="submit" class="btn btn-default" id="sub">Change</button>
+          </form>
+        </div>
+        <br><br>
+      </div>
+      </div>
+    </div>
+</div>
+<script>
+  var looking = document.getElementById('looking');
+  looking.value = '<%=lookingfor%>';
+  var interest = document.getElementById('interest');
+  var addprofile = document.getElementById('addprofile');
+  var addImage = document.getElementById('addImage');
+  interest.value = '<%=interestedin%>';
+   var change = document.getElementById('change');
+   change.addEventListener('click',(e)=>{
+     addprofile.style.display = 'block';
+     change.style.display = 'none';
+   })
+</script>
+  </body>
+</html>

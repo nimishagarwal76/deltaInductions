@@ -1,0 +1,31 @@
+<br><br><br><br><h2 class="page-header">Profile</h2>
+<!-- <form method="post" action="" name="profileInfo" enctype="multipart/form-data">
+  <div class="form-group">
+   <label>Profile Picture</label>
+   <input type="file" name="myImage" class = 'form-control'>
+ </div>
+</form> -->
+<form method="post" action="" name="profileInfo">
+   <div class="form-group">
+    <label>Interested in</label>
+    <select class="form-control" name="interestedin" id="interest">
+      <option value="boy">Boys</option>
+      <option value="girl">Girls</option>
+    </select>
+  </div>
+   <div class="form-group">
+    <label>About Me</label>
+    <!-- <input type="email" class="form-control" placeholder="Email" name="email"> -->
+    <textarea class="form-control" placeholder="About Me" name="aboutme"><%=aboutme%></textarea>
+  </div>
+   <div class="form-group">
+  <label>Looking For</label>
+    <select class="form-control" name="lookingfor" id="looking">
+      <option value="relationship">Relationship</option>
+      <option value="hangout">Hang Out</option>
+      <option value="hookup">Hook Up</option>
+    </select>
+  </div>
+  <div class="g-recaptcha" data-sitekey="6LejVWEUAAAAADEHbediC-8vdEDGt87eQDYe2Hbi"></div>
+  <button type="submit" class="btn btn-default" id="sub">Submit</button>
+</form>
