@@ -24,5 +24,3 @@ Onsite Tasks for Delta Inductions
 ### Virtual Forest
 * Simulation of a Forest
 * Balance between LumberJack, Beers, Plants
-### Voronoi
-* Generates Voronoi diagram
