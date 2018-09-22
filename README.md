@@ -18,9 +18,6 @@
 Onsite Tasks for Delta Inductions
 ### Div Styler
 * A tool to manipulate frontend of website
-### LoremPixel
-* Clone of lorempixel.com
-* Generates images of specified width and size
 ### Virtual Forest
 * Simulation of a Forest
 * Balance between LumberJack, Beers, Plants
