@@ -1,5 +1,5 @@
 # Delta Inductions
-* These projects were developed as a part of inductions for Delta Force, NIT Trichy (Official coding club of NIT Trichy)
+* These projects were developed as a part of inductions for Delta Force, NIT Trichy (Coding club of NIT Trichy)
 ## Menteelist
 * Built in Javascript, CSS, HTML
 * Helps adding, deletion, sorting of mentees
